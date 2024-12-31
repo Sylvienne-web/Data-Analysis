@@ -15,7 +15,7 @@ WITH temp_table AS (
 			fin_id,
 			MAX(dpd) max_dpd,
 			DATEFROMPARTS(YEAR([date]), MONTH([date]), 1) AS date_extract
-		FROM Jenfi_ques1
+		FROM Data_question1
 		GROUP BY  fin_id, DATEFROMPARTS(YEAR([date]), MONTH([date]), 1)
 	) AS t1
 )
@@ -29,7 +29,7 @@ SELECT
 	END AS dpd_type,
 	DATEPART(year,[date]) _year,
 	DATEPART(month, [date]) _month
-FROM Jenfi_ques1 j
+FROM Data_question1 j
 LEFT JOIN temp_table t
 	ON j.fin_id = t.fin_id AND DATEFROMPARTS(YEAR([date]), MONTH([date]), 1) = t.date_extract
 GROUP BY 
