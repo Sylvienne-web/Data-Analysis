@@ -6,7 +6,7 @@ FROM FACT_SALE
 GROUP BY YEAR(Date)
 ORDER BY YEAR(Date)
 
--- Top 3 vendors per city (Co nen exclude null?)
+-- Top 3 vendors per city
 SELECT 
 	Vendor_Name,
 	city,
